@@ -1,14 +1,15 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <div class="row pull-xs-right">
-        <div class="col-md-3 hidden-md-down navbar-brand">{{appName}}</div>
-        <div class="col-md-6">
-           &nbsp;
+<nav class="navbar navbar-default navbar-fixed-top app-nav">
+      <div class="container" >
+        <div class="navbar-header">
+          
+          <a class="navbar-brand app-navbar-brand" href="#">{{appName}}</a>
         </div>
-        <div class="col-md-3">
-            <nav class="nav navbar-nav pull-xs-right">
-                <li class="nav-item"> <a class="nav-link" href="https://twitter.com/_tipek"><i aria-hidden="true" class="fa fa-twitter"></i> Register</a>                    </li>
-                <li class="nav-item"> <a class="nav-link" href="https://github.com/tahaipek"><i aria-hidden="true" class="fa fa-github"></i> Sign Out</a>                    </li>
-            </nav>
-        </div>
-    </div>
-</nav>
+        <div id="navbar app-navbar" class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav app-navbar-nav navbar-right">
+            <li><a [routerLink]="['/signup']">Sign Up</a></li>
+            <li><a [routerLink]="['/signup']">Sign Up</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

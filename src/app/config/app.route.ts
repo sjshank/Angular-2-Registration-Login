@@ -9,7 +9,7 @@ import { AppGuardService } from './app.guard';
 const appRoutes: Routes=[
     {path: '', component: HomeComponent, canActivate: [AppGuardService]},
     {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
+    {path: 'signup', component: RegisterComponent},
     {path: '*', redirectTo: ''}
 ]
 

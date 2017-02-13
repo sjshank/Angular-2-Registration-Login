@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    height: auto;
+    padding-top: 70px;
+}
+
+.app-nav {
+    background-color: #36465d !important;
+    border-color: #36465d !important;
+    
+}
+.app-navbar-brand, .app-navbar-nav > li > a, .app-navbar-nav > li > a:hover, .app-navbar-nav > li > a:visited {
+    color: #fff !important;
+}
+.app-jumbotron{
+    
+}
