@@ -16,7 +16,7 @@ export class LoginService {
     constructor(private _http: Http){}
 
     doLogin(model : any){
-        return this._http.get(APPCONSTANT.githubUrl + model.userName)
+        return this._http.get(APPCONSTANT.githubUrl + model.username)
                     .map((response: Response) => <IUser[]> response.json())
                     .catch(this._handleError);
     }

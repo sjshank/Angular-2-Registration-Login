@@ -7,10 +7,11 @@ import { AppGuardService } from './app.guard';
 
 
 const appRoutes: Routes=[
-    {path: '', component: HomeComponent, canActivate: [AppGuardService]},
+    {path: 'home', component: HomeComponent, canActivate: [AppGuardService]},
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: RegisterComponent},
-    {path: '*', redirectTo: ''}
+    {path: 'logout', component: LoginComponent},
+    {path: '**', redirectTo: 'home'}
 ]
 
 export const AppRouter = RouterModule.forRoot(appRoutes);

@@ -7,8 +7,9 @@
         <div id="navbar app-navbar" class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav app-navbar-nav navbar-right">
-            <li><a [routerLink]="['/signup']">Sign Up</a></li>
-            <li><a [routerLink]="['/signup']">Sign Up</a></li>
+            <li *ngIf="!isLogged" ><a [routerLink]="['/login']">Sign In</a></li>
+            <li *ngIf="!isLogged"><a [routerLink]="['/signup']">Sign Up</a></li>
+            <li *ngIf="isLogged"><a [routerLink]="['/login']">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

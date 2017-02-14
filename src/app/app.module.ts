@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorComponent } from './directives/error/error.component';
 import { HeaderComponent } from './directives/header/header.component';
+import { FooterComponent } from './directives/footer/footer.component';
 import { AppGuardService } from './config/app.guard';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
@@ -22,7 +23,8 @@ import { AppRouter } from './config/app.route';
     LoginComponent,
     RegisterComponent,
     ErrorComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

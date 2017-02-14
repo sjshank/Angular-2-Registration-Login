@@ -8,12 +8,12 @@
         <div class='col-lg-4 col-md-4'>
         </div>
         <div class='col-lg-4 col-md-4'>
-          <form [formGroup]='loginForm' (submit)="doLogin()">
-            <label for="userName" class="sr-only">User Name</label>
-            <input type="text" id="userName" class="form-control" placeholder="User Name" formControlName="userName" autofocus="">
+          <form novalidate [formGroup]='loginForm' (submit)="doLogin()"  >
+            <label for="username" class="sr-only">User Name</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="User Name" formControlName="username" autofocus="">
             <br>
             <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" formControlName="password">
             <br>
             <br>
             <button class="login-btn btn btn-lg btn-primary btn-block" type="submit">Sign In</button>

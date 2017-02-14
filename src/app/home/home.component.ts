@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {IUser} from '../models/user';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  user : IUser;
+  isLogged : boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+    if(localStorage.getItem('loggedUser')){
+      this.isLogged = true;
+      this.user = JSON.parse(localStorage.getItem('loggedUser'));
+    }
   }
 
 }
