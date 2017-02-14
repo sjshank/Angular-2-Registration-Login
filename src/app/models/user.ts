@@ -13,4 +13,5 @@ export interface IUser{
     created_at : string;
     followers : number;
     following : number;
+    message : string;
 }

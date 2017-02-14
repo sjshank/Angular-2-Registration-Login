@@ -2,4 +2,12 @@
     border-color: #36465d !important;
     background-color: #36465d;
     color: #fff;
+    font-size: 18px;
+}
+.has-error {
+    border: 1px solid darkred;
+}
+.error-block {
+    color: darkred;
+    margin-bottom: -5px !important;
 }

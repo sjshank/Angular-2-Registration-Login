@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import {IUser} from '../models/user';
 
 @Component({
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
       this.isLogged = true;
       this.user = JSON.parse(localStorage.getItem('loggedUser'));
     }
+  }
+
+  getRepos(){
+    console.log('In repos');
   }
 
 }

@@ -19,20 +19,20 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this._doLogout();
+
     this.loginForm = this._fb.group({
-      username: ['', Validators.pattern('^[a-zA-Z0-9]+$')],
-      password: ['', Validators.pattern('^[a-zA-Z0-9]+$')]
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   doLogin() {
-    console.log("Login form", this.loginForm);
     if (this.loginForm.dirty && this.loginForm.valid) {
       this._loginService.doLogin(this.loginForm.value)
         .subscribe(
         data => {
-          console.log("success login", data);
-          localStorage.setItem('loggedUser', JSON.stringify(data));
           this._router.navigate(['/home'])
         },
         error => {
@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
         }
         )
     }
+  }
+
+  private _doLogout() {
+    localStorage.removeItem('loggedUser');
   }
 
 }

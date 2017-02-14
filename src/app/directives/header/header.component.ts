@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent {
     isLogged: boolean = false;
-    appName: string = 'Angular 2 - Registration/Login';
+    appName: string = 'Angular 2 - Registration-Login';
     
     ngOnInit() {
         if (localStorage.getItem('loggedUser')) {
             this.isLogged = true;
         }
     }
+    
+    ngOnDestroy() {
+        this.isLogged = false;
+  }
 }

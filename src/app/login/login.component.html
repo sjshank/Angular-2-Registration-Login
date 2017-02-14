@@ -8,15 +8,16 @@
         <div class='col-lg-4 col-md-4'>
         </div>
         <div class='col-lg-4 col-md-4'>
-          <form novalidate [formGroup]='loginForm' (submit)="doLogin()"  >
+          <form novalidate [formGroup]='loginForm' (submit)="doLogin()" >
             <label for="username" class="sr-only">User Name</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="User Name" formControlName="username" autofocus="">
+            <input type="text" [ngClass]="{ 'has-error': loginForm.controls.username.dirty && loginForm.controls.username.invalid}" id="username" name="username" class="form-control" placeholder="User Name" formControlName="username" autofocus="">
+            <span *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.invalid" class="help-block error-block">Username is required</span>
             <br>
             <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" formControlName="password">
+            <input type="password" [ngClass]="{ 'has-error': loginForm.controls.password.dirty && loginForm.controls.password.invalid}" id="password" name="password" class="form-control" placeholder="Password" formControlName="password">
+            <span *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.invalid" class="help-block error-block">Password is required</span>
             <br>
-            <br>
-            <button class="login-btn btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+            <button [disabled]="loginForm.invalid" class="login-btn btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
           </form>
         </div>
         <div class='col-lg-4 col-md-4'>

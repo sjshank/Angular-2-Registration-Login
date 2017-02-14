@@ -16,8 +16,19 @@ export class LoginService {
     constructor(private _http: Http){}
 
     doLogin(model : any){
+        if(!model.username && model.username === 'undefined'){
+            Observable.throw("User not found");
+            return;
+        }
         return this._http.get(APPCONSTANT.githubUrl + model.username)
-                    .map((response: Response) => <IUser[]> response.json())
+                    .map((response: Response) => {
+                        let user : IUser = response.json();
+                        if(user.message === 'Not Found'){
+                            Observable.throw("Unauthorized");
+                        }else{
+                            localStorage.setItem('loggedUser', JSON.stringify(user));
+                        }
+                    })
                     .catch(this._handleError);
     }
 

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {ModalModule} from "ngx-modal";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +14,7 @@ import { FooterComponent } from './directives/footer/footer.component';
 import { AppGuardService } from './config/app.guard';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
+import { DateFilter } from './home/home-filter.pipe';
 import { AppRouter } from './config/app.route';
 
 
@@ -24,14 +26,16 @@ import { AppRouter } from './config/app.route';
     RegisterComponent,
     ErrorComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DateFilter
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRouter
+    AppRouter,
+    ModalModule
   ],
   providers: [
     AppGuardService,

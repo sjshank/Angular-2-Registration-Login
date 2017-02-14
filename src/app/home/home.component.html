@@ -1,27 +1,41 @@
 <div class="panel panel-primary home-panel" style="border-color: #36465d !important;">
-<div *ngIf="user" class="text-center">
-  <div class="card">
-    <h4 class="card-header">Welcome <strong><i>{{user.name}}</i></strong></h4>
-    <div class="card-block">
-      <div class="row">
-        <div class="col-xl-4 m-b-1"> <img class="profile-img img-thumbnail m-b-1" src="{{user.avatar_url}}">
-          <a class="btn btn-sm btn-outline-primary btn-block m-t-1"
-            target="_blank" href="{{user.html_url}}">View Profile</a>
-        </div>
-        <div class="col-xl-8">
-          <ul class="list-group">
-            <li class="list-group-item"><b>Username: </b> {{user.login}}</li>
-            <li class="list-group-item"><b>Location: </b> {{user.location}}</li>
-            <li class="list-group-item"><b>E-Mail: </b> {{user.email}}</li>
-            <li class="list-group-item"><b>Company: </b> {{user.company}}</li>
-            <li class="list-group-item"><b>About: </b> {{user.bio}}</li>
-            <li class="list-group-item"><b>Repositors: </b> {{user.repos_url}}</li>
-            <li class="list-group-item"><b>Member Since: </b> {{user.created_at}}</li>
-          </ul>
-        </div>
+  <div *ngIf="user" class="text-center">
+    <div class="card">
+      <h4 class="card-header">Welcome <strong><i>{{user.name}}</i></strong></h4>
+      <div class="card-block">
+        <div class="row">
+          <div class="col-xl-4 m-b-1"> <img class="profile-img img-thumbnail m-b-1" src="{{user.avatar_url}}">
+            <a class="btn btn-sm btn-outline-primary btn-block m-t-1" target="_blank" href="{{user.html_url}}">View Profile</a>
+          </div>
+          <div class="col-xl-8">
+            <ul class="list-group">
+              <li class="list-group-item"><b>Username: </b> {{user.login}}</li>
+              <li class="list-group-item"><b>Location: </b> {{user.location}}</li>
+              <li class="list-group-item"><b>E-Mail: </b> {{user.email}}</li>
+              <li class="list-group-item"><b>Company: </b> {{user.company}}</li>
+              <li class="list-group-item"><b>About: </b> {{user.bio}}</li>
+              <li class="list-group-item"><b>Repositories: </b> <a role="button" (click)="repoModel.open()">{{user.public_repos}} Public Repos</a></li>
+              <li class="list-group-item"><b>Member Since: </b> {{user.created_at | dateFilter}}</li>
+            </ul>
+          </div>
+        </div>  
+        <div class="status m-t-1"> <span class="p-a-05 bg-info text-xs-center"> {{user.public_repos}} Public Repos </span> <span class="p-a-05 bg-danger m-t-1 text-xs-center"> {{user.followers}} Followers </span>          <span class="p-a-05 bg-warning m-t-1 text-xs-center"> {{user.following}} Followings </span> </div>
       </div>
-      <div class="status m-t-1"> <span class="p-a-05 bg-info text-xs-center"> {{user.public_repos}} Public Repos </span>         <span class="p-a-05 bg-danger m-t-1 text-xs-center"> {{user.followers}} Followers </span> <span class="p-a-05 bg-warning m-t-1 text-xs-center"> {{user.following}} Followings </span>        </div>
     </div>
   </div>
 </div>
-</div>
+
+<modal #repoModel [hideCloseButton]="false"
+        [closeOnEscape]="true"
+        [closeOnOutsideClick]="false"
+        (onOpen)="getRepos()">
+        <modal-header>
+            <h1>Github Repositories</h1>
+        </modal-header>
+        <modal-content>
+            Hello Modal!
+        </modal-content>
+        <modal-footer>
+            <button class="btn btn-primary" (click)="repoModel.close()">close</button>
+        </modal-footer>
+    </modal>
