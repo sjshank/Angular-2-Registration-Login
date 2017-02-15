@@ -14,6 +14,8 @@ import { FooterComponent } from './directives/footer/footer.component';
 import { AppGuardService } from './config/app.guard';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
+import { HomeService } from './services/home.service';
+import { ErrorService } from './services/error.service';
 import { DateFilter } from './home/home-filter.pipe';
 import { AppRouter } from './config/app.route';
 
@@ -40,7 +42,9 @@ import { AppRouter } from './config/app.route';
   providers: [
     AppGuardService,
     LoginService,
-    RegisterService
+    RegisterService,
+    HomeService,
+    ErrorService
     ],
   bootstrap: [AppComponent]
 })

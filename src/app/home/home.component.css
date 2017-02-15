@@ -2,3 +2,10 @@
     overflow: hidden;
     border-color: #36465d !important;
 }
+.repo-detail-ul {
+    list-style: none;
+}
+.repo-modal ul.list-group{
+    overflow-y: scroll;
+    max-height: 300px;
+}
