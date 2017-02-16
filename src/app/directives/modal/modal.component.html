@@ -1,0 +1,23 @@
+<modal #repoModel [hideCloseButton]="false"
+        [closeOnEscape]="true"
+        [closeOnOutsideClick]="false"
+        (onOpen)="getRepos()">
+        <modal-header>
+            <h1>Github Repositories</h1>
+        </modal-header>
+        <modal-content class="repo-modal">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let repo of repos">
+                <ul class="repo-detail-ul">
+                  <li><strong>Name :</strong> {{repo.name}}</li>
+                  <li><strong>Description :</strong> {{repo.description}}</li>
+                  <li><strong>Created On :</strong> {{repo.created_at | dateFilter}}</li>
+                  <li><strong>Home Page :</strong> <a href="{{repo.html_url}}" target="_blank">{{repo.full_name}}</a></li>
+                </ul>
+              </li>
+            </ul>
+        </modal-content>
+        <modal-footer>
+            <button class="btn btn-primary close-btn" (click)="repoModel.close()">OK</button>
+        </modal-footer>
+    </modal>

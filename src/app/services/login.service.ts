@@ -9,11 +9,12 @@ import 'rxjs/add/observable/throw';
 
 import { IUser } from '../models/user';
 import { APPCONSTANT } from '../config/app.config'
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class LoginService {
 
-    constructor(private _http: Http){}
+    constructor(private _http: Http, private _storageService: StorageService){}
 
     doLogin(model : any){
         if(!model.username && model.username === 'undefined'){
@@ -26,7 +27,7 @@ export class LoginService {
                         if(user.message === 'Not Found'){
                             Observable.throw("Unauthorized");
                         }else{
-                            localStorage.setItem('loggedUser', JSON.stringify(user));
+                            this._storageService.addStorage('loggedUser', user);
                         }
                     })
                     .catch(this._handleError);

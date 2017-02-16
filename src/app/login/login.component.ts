@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { LoginService } from '../services/login.service';
 import { ErrorService } from '../services/error.service';
+import { StorageService } from '../services/storage.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private _loginService: LoginService, private _fb: FormBuilder,
     private _router: Router, private _route: ActivatedRoute,
-    private _errorService: ErrorService) {
+    private _errorService: ErrorService, private _storageService: StorageService,
+    private _messageService: MessageService) {
 
   }
 
@@ -35,6 +38,7 @@ export class LoginComponent implements OnInit {
       this._loginService.doLogin(this.loginForm.value)
         .subscribe(
         data => {
+          this._messageService.sendMessage(false);
           this._router.navigate(['/home'])
         },
         error => {
@@ -46,7 +50,8 @@ export class LoginComponent implements OnInit {
   }
 
   private _doLogout() {
-    localStorage.removeItem('loggedUser');
+    this._storageService.clearStorage('loggedUser');
+    this._messageService.sendMessage(true);
   }
 
 }

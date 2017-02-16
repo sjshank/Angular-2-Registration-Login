@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HomeService } from '../services/home.service';
+import { StorageService } from '../services/storage.service';
+import { ErrorService } from '../services/error.service';
 import { IUser } from '../models/user';
 import { IRepo } from '../models/repo';
 
@@ -15,12 +17,13 @@ export class HomeComponent implements OnInit {
   isLogged: boolean = false;
   repos: IRepo;
 
-  constructor(private _homeService: HomeService) { }
+  constructor(private _homeService: HomeService, private _storageService: StorageService,
+              private _errorService: ErrorService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('loggedUser')) {
+    if (this._storageService.getStorage('loggedUser')) {
       this.isLogged = true;
-      this.user = JSON.parse(localStorage.getItem('loggedUser'));
+      this.user = this._storageService.getStorage('loggedUser');
     }
   }
 
@@ -29,6 +32,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
       data => this.repos = data,
       error => {
+        this._errorService.error(error);
         console.log(error)
       }
       )

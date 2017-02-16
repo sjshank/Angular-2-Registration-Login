@@ -11,11 +11,14 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorComponent } from './directives/error/error.component';
 import { HeaderComponent } from './directives/header/header.component';
 import { FooterComponent } from './directives/footer/footer.component';
+import { ModalComponent } from './directives/modal/modal.component';
 import { AppGuardService } from './config/app.guard';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { HomeService } from './services/home.service';
 import { ErrorService } from './services/error.service';
+import { StorageService } from './services/storage.service';
+import { MessageService } from './services/message.service';
 import { DateFilter } from './home/home-filter.pipe';
 import { AppRouter } from './config/app.route';
 
@@ -29,6 +32,7 @@ import { AppRouter } from './config/app.route';
     ErrorComponent,
     HeaderComponent,
     FooterComponent,
+    ModalComponent,
     DateFilter
   ],
   imports: [
@@ -44,7 +48,9 @@ import { AppRouter } from './config/app.route';
     LoginService,
     RegisterService,
     HomeService,
-    ErrorService
+    ErrorService,
+    StorageService,
+    MessageService
     ],
   bootstrap: [AppComponent]
 })
