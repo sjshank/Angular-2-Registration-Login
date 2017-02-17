@@ -1,6 +1,15 @@
-# RegistrationLoginAngular2
+# Registration-Login-Angular2
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+
+It uses ngx-modal(modal popup), Github API(Validating login) and Observable/Subject(maintaining session/global error display) for various purpose. 
+Registration functionality post user details to dummy http://jsonplaceholder.typicode.com/users/ API. It is not registering any real data. 
+
+
+    1. Run 'npm install'
+    2. Run 'npm start'
+    3. Hit 'localhost:4200'
+
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
